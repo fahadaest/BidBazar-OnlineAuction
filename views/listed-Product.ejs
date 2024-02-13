@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/productstyle.css">
+    <link rel="stylesheet" href="/slick/slick.css">
+    <link rel="stylesheet" href="/slick/slick-theme.css">
+    <link rel="stylesheet" href="/css/banner.css">
+
+    <!-- External owl carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>BidBazar</title>
+    <style>
+        .wrapper {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        table tr td:last-child {
+            width: 120px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</head>
+<body>
+    <%- include('includes/navbar') %>
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mt-5 mb-3 clearfix">
+                        <h2 class="pull-left">Listed Products</h2>
+                        <a href="add-product" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Product</a>
+                    </div>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>title</th>
+                                <th>Description</th>
+                                <th>Bid Price</th>
+                                <th>Current Bid</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% products.forEach(function(prod) { %>
+                            <tr>
+                                <td><%= prod.title %></td>
+                                <td><%= prod.description %></td>
+                                <td><%= prod.bid_price %></td>
+                                <td><%= prod.current_bid %></td>
+                                <td><%= prod.status %></td>
+                                <td>
+                                     <a href="delete-pduct?id='<%= prod.title %>'" class="mr-3" title="View Record"
+                                        data-toggle="tooltip"><span class="fa fa-eye"></span></a>
+                                    <a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record"
+                                        data-toggle="tooltip"><span class="fa fa-pencil"></span></a>
+                                    <a href="/api/delete-product/<%= prod._id %>"  title="Delete Record"
+                                        data-toggle="tooltip"><span class="fa fa-trash"></span></a>
+                                </td>
+                            </tr>
+                            <% }); %> 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

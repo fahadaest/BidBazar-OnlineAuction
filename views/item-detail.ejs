@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/indexstyle.css">
+  <link rel="stylesheet" href="/slick/slick.css">
+  <link rel="stylesheet" href="/slick/slick-theme.css">
+  <link rel="stylesheet" href="/css/banner.css">
+
+  <!-- site favicon -->
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
+  <!-- ====== All css file ========= -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css//icofont.min.css">
+  <link rel="stylesheet" href="/assets/css/animate.css">
+  <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- External owl carousel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>BidBazar</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Button used to open the contact form - fixed at the bottom of the page */
+    .open-button {
+      background-color: #ffffff;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      opacity: 0.8;
+      position: fixed;
+      bottom: 23px;
+      right: 28px;
+      width: 280px;
+    }
+
+    /* The popup form - hidden by default */
+    .form-popup {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      right: 15px;
+      border: 3px solid #f1f1f1;
+      z-index: 9;
+    }
+
+    /* Add styles to the form container */
+    .form-container {
+      max-width: 300px;
+      padding: 10px;
+      background-color: white;
+    }
+
+    /* Full-width input fields */
+    .form-container input[type=text],
+    .form-container input[type=password] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    /* When the inputs get focus, do something */
+    .form-container input[type=text]:focus,
+    .form-container input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    /* Set a style for the submit/login button */
+    .form-container .btn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+      background-color: red;
+    }
+
+    /* Add some hover effects to buttons */
+    .form-container .btn:hover,
+    .open-button:hover {
+      opacity: 1;
+    }
+
+    .mySlides {
+      display: none
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+      background-color: #ffffff;
+    }
+
+    /* Fading animation */
+    .fadess {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fadess {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- Navbar -->
+  <%- include('includes/navbar') %>
+
+    <% if (alert) { %>
+      <div class="alert <%=type%>" role="alert">
+        <%= message %>
+      </div>
+      <% } %>
+
+        <header class="bg-warning text-white text-center py-5">
+          <h1>Product Detail</h1>
+        </header>
+
+        <!-- ==========Item Details Section start Here========== -->
+        <div class="item-details-section padding-top padding-bottom">
+          <div class="container">
+            <% product.forEach(function(prod) { %>
+              <div class="item-details-wrapper">
+                <div class="row g-5">
+                  <div class="col-lg-6">
+                    <div class="item-desc-part">
+                      <div class="item-desc-inner">
+                        <div class="slideshow-container">
+                          <% prod.image.forEach(function(image) { %>
+                            <div class="item-desc-thumb mySlides fadess">
+                              <img src="<%= image%>" alt="item-img">
+                            </div>
+                            <% }); %>
+                              <a class="prev" onclick="plusSlides(-1)">❮</a>
+                              <a class="next" onclick="plusSlides(1)">❯</a>
+                        </div>
+                        <br>
+                        <div style="text-align:center">
+                          <span class="dot" onclick="currentSlide(1)"></span>
+                          <span class="dot" onclick="currentSlide(2)"></span>
+                          <span class="dot" onclick="currentSlide(3)"></span>
+                        </div>
+
+                        <div class="item-desc-content">
+                          <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                              <button class="nav-link active" id="nav-details-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-details" type="button" role="tab" aria-controls="nav-details"
+                                aria-selected="true">Details</button>
+                              <button class="nav-link" id="nav-history-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-history" type="button" role="tab" aria-controls="nav-history"
+                                aria-selected="false">History</button>
+                            </div>
+                          </nav>
+
+                          <div class="tab-content" id="nav-tabContent">
+                            <div class="details-tab tab-pane show active" id="nav-details" role="tabpanel"
+                              aria-labelledby="nav-details-tab">
+
+                              <p>
+                                <%= prod.description %>
+                              </p>
+                              <div class="author-profile d-flex flex-wrap align-items-center gap-15">
+                                <div class="author-p-thumb">
+                                  <a href="author.html"><img src="/assets/images/seller/collector-3.gif"
+                                      alt="author-img "></a>
+                                </div>
+                                <div class="author-p-info">
+                                  <p class="mb-0">Owner</p>
+                                  <h6><a href="/api/store" > BidBazar</a></h6>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="bids-tab tab-pane fade" id="nav-bids" role="tabpanel"
+                              aria-labelledby="nav-bids-tab">
+                              <span><i class="icofont-law-order"></i></span>
+                              <p>No active bids yet. Be the first to make a bid!</p>
+                            </div>
+                            <div class="history-tab tab-pane fade" id="nav-history" role="tabpanel"
+                              aria-labelledby="nav-history-tab">
+                              <ul class="item-histo-list">
+                                <% bids.forEach(function(bid) { %>
+                                  <li class="histo-item">
+                                    <p>
+                                      <%= bid.bid_price %>
+                                        <%= bid.description %> <a onclick="openUserDetail()">@ <%= bid.bid_by_name %> </a>
+                                    </p>
+                                    <time>
+                                      <%= bid.bid_time%>
+                                    </time>
+                                  </li>
+                                  <% }); %>
+                              </ul>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="item-buy-part">
+                      <div class="nft-item-title">
+                        <h3>
+                          <%= prod.title %>
+                        </h3>
+                      </div>
+                      <div class="item-details-countdown">
+                        <h4>Ends In:</h4>
+                        <ul class="item-countdown-list count-down" data-date="<%= prod.end_time%>">
+                          <li>
+                            <span class="days">34</span><span class="count-txt">Days</span>
+                          </li>
+                          <li>
+                            <span class="hours">09</span><span class="count-txt">Hours</span>
+                          </li>
+                          <li>
+                            <span class="minutes">32</span><span class="count-txt">Mins</span>
+                          </li>
+                          <li>
+                            <span class="seconds">32</span><span class="count-txt">Secs</span>
+                          </li>
+                        </ul>
+                      </div>
+                      From: <%= prod.start_time%> To: <%= prod.end_time%>
+                          <div class="item-price">
+                            <h4>Stating From</h4>
+                            <p><span></i>
+                                <%= prod.bid_price%> pkr
+                              </span></p>
+                            <h4>Latest Bid</h4>
+                            <p><span></i>
+                                <%= prod.current_bid %> pkr
+                              </span></p>
+                          </div>
+                          <% if (prod.status !='S' ) { %>
+                            <div class="buying-btns d-flex flex-wrap">
+                              <button class="default-btn style-2 move-right" onclick="openForm()"><span>Place a
+                                  Bid</span>
+                              </button>
+                            </div>
+                            <% } %>
+         
+
+                              <div class="form-popup" id="myForm">
+                                <form action="/api/bid" method="post" class="form-container"
+                                  onsubmit="return handleBidSubmit()">
+                                  <h1>Place a Bid</h1>
+                                  <label for="text"><b>Your Bid</b></label>
+                                  <input type="number" placeholder="Enter Your Bid...." name="newbid_price"
+                                    id="bidInput" required>
+                                  <input type="text" value="<%= prod.bid_price%>" name="start_bid" id="startbid" hidden>
+                                  <input type="text" value="<%= prod.current_bid%>" name="current_bid" id="currbid"
+                                    hidden>
+                                  <input type="text" value="<%= prod._id%>" name="id" hidden>
+                                  <button type="submit" class="btn" id="submitButton" disabled>Bid</button>
+                                  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                                </form>
+                              </div>
+
+                              <div class="modal" id="userDerail" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title">User Details</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Username: Fahad</p>
+                                      <p>User Contact: 03324166263</p>
+                                      <p>User Email: fahadaestt@gmail.com</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeDetail()">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% }); %>
+          </div>
+        </div>
+        <!-- ==========Item Details Section ends Here========== -->
+
+
+
+        <!-- Footer -->
+        <%- include('includes/footer') %>
+
+
+
+          <!-- scrollToTop start here -->
+          <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+          <!-- scrollToTop ending here -->
+
+          <!-- All Scripts -->
+          <script src="/assets/js/jquery-3.6.0.min.js"></script>
+          <script src="/assets/js/bootstrap.bundle.min.js"></script>
+          <script src="/assets/js/waypoints.min.js"></script>
+          <script src="/assets/js/swiper-bundle.min.js"></script>
+          <script src="/assets/js/countdown.min.js"></script>
+          <script src="/assets/js/jquery.counterup.min.js"></script>
+          <script src="/assets/js/wow.min.js"></script>
+          <script src="/assets/js/jquery.simpleLoadMore.min.js"></script>
+          <script src="/assets/js/isotope.pkgd.min.js"></script>
+          <script src="/assets/js/functions.js"></script>
+
+          <script>
+            function openForm() {
+              document.getElementById("myForm").style.display = "block";
+            }
+
+            function closeForm() {
+              document.getElementById("myForm").style.display = "none";
+            }
+            var bidInput = document.getElementById('bidInput');
+            var startbidInput = document.getElementById('startbid');
+            var currentbidInput = document.getElementById('currbid');
+            var submitButton = document.getElementById('submitButton');
+
+            // Add an event listener to the input element
+            bidInput.addEventListener('input', function () {
+              var newBid = bidInput.value;
+              var startBid = startbidInput.value;
+              var currBid = currentbidInput.value;
+              console.log(newBid, startBid, currBid)
+              if ((newBid && parseInt(newBid) > startBid) && (newBid && parseInt(newBid) > currBid)) {
+                submitButton.disabled = false; // Enable the submit button
+              } else {
+                submitButton.disabled = true; // Disable the submit button
+              }
+            });
+          </script>
+
+          <script>
+            function openUserDetail(){
+              document.getElementById("userDerail").style.display = "block";
+            }
+
+            function closeDetail() {
+              document.getElementById("userDerail").style.display = "none";
+            }
+          </script>
+
+          <script>
+            function handleBidSubmit() {
+              showAlert('Bid Added Successfully, go to history to watch your bid.');
+
+              return true;
+            }
+
+            function showAlert(message) {
+              alert(message);
+            }
+
+            function closeForm() {
+            }
+
+          </script>
+
+          <script>
+            const countdownElement = document.querySelector(".item-countdown-list");
+
+            // Get the target date from the data-date attribute
+            const targetDate = new Date(countdownElement.getAttribute("data-date")).getTime();
+
+            // Update the countdown every second
+            const countdownInterval = setInterval(updateCountdown, 1000);
+
+            function updateCountdown() {
+              // Get the current date and time
+              const now = new Date().getTime();
+
+              // Calculate the time remaining
+              const timeRemaining = targetDate - now;
+
+              // Check if the countdown has ended
+              if (timeRemaining <= 0) {
+                clearInterval(countdownInterval);
+                countdownElement.innerHTML = "Countdown has ended!";
+                return;
+              }
+
+              // Calculate the days, hours, minutes, and seconds
+              const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+              const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+              const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+              // Update the countdown elements
+              countdownElement.querySelector(".days").textContent = days;
+              countdownElement.querySelector(".hours").textContent = hours;
+              countdownElement.querySelector(".minutes").textContent = minutes;
+              countdownElement.querySelector(".seconds").textContent = seconds;
+            }
+          </script>
+          <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+              let dots = document.getElementsByClassName("dot");
+              if (n > slides.length) { slideIndex = 1 }
+              if (n < 1) { slideIndex = slides.length }
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+              }
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex - 1].style.display = "block";
+              dots[slideIndex - 1].className += " active";
+            }
+          </script>
+</body>
+
+</html>

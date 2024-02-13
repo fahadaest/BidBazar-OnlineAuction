@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/indexstyle.css">
+  <link rel="stylesheet" href="slick/slick.css">
+  <link rel="stylesheet" href="slick/slick-theme.css">
+  <link rel="stylesheet" href="/css/banner.css">
+
+      <!-- site favicon -->
+      <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
+      <!-- ====== All css file ========= -->
+      <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/assets/css//icofont.min.css">
+      <link rel="stylesheet" href="/assets/css/animate.css">
+      <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+      <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- External owl carousel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>BidBazar</title>
+</head>
+
+
+
+
+
+
+
+<body>
+
+
+        <!-- Navbar -->
+        <%- include('includes/navbar') %>
+
+    <header class="bg-warning text-white text-center py-5">
+        <h1>All Stores</h1>
+    </header>
+
+
+    <!-- ===============//collection section start here \\================= -->
+    <section class="collection-section padding-top padding-bottom">
+        <div class="container">
+            <div class="section-header">
+                <h3 class="header-title">Stores</h3>
+            </div>
+            <div class="section-wrapper">
+                <div class="collection-wrapper collection-loadmore">
+                    <div class="row justify-content-center g-4">
+                        <% store.forEach(function(stor) { %>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="nft-item collection-item">
+                                <div class="nft-inner">
+                                    <div class="coll-thumb-wrapper">
+                                        <div class="nft-coll-thumb ">
+                                            <div class="thumb-list swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <div class="single-thumb"><img
+                                                            src="<%= stor.store_image%>"
+                                                            alt="cat-image">
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="single-thumb"><img
+                                                            src="<%= stor.store_image%>"
+                                                            alt="cat-image">
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <div class="single-thumb"><img
+                                                            src="<%= stor.store_image%>"
+                                                            alt="cat-image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="nft-content">
+                                        <div class="collection-title">
+                                            <h5><a href="/api/store/<%= stor._id%>"><%= stor.store_fullname %></a> </h5>
+                                            <p>Collection has 13 items</p>
+                                        </div>
+                                        <div
+                                            class="author-details d-flex flex-wrap justify-content-between align-items-center">
+                                            <div class="single-author d-flex align-items-center">
+                                                <a href="author.html" class="veryfied"><img
+                                                        src="<%= stor.store_image%>" alt="author-img"></a>
+                                                <h6><a href="/api/store/<%= stor._id%>"><%= stor.store_name %></a></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% }); %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===============//Collection section end here \\================= -->
+
+
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2023 BidBazar. All rights reserved.
+    </footer>
+
+
+
+
+    <!-- scrollToTop start here -->
+    <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+    <!-- scrollToTop ending here -->
+
+
+
+
+    <!-- All Scripts -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/countdown.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/jquery.simpleLoadMore.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/functions.js"></script>
+</body>
+
+</html>

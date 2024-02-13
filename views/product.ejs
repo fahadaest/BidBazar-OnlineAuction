@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/productstyle.css">
+    <link rel="stylesheet" href="/slick/slick.css">
+    <link rel="stylesheet" href="/slick/slick-theme.css">
+    <link rel="stylesheet" href="/css/banner.css">
+
+
+
+    <!-- External owl carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>BidBazar</title>
+</head>
+
+
+
+
+<body>
+    <%- include('includes/navbar') %>
+    <% if (alert) { %>
+        <div class="alert <%=type%>" role="alert"><%= message %></div>
+    <% } %> 
+    
+        <!-- Products -->
+        <div class="wrapper">
+            <div class="d-md-flex align-items-md-center">
+                <div class="h3">Products available for Bidding</div>
+
+            </div>
+
+            <div class="filters"> <button class="prod btn btn-warning" type="button" data-toggle="collapse"
+                    data-target="#mobile-filter" aria-expanded="true" aria-controls="mobile-filter">Filter<span
+                        class="px-1 fas fa-filter"></span></button> </div>
+            <div id="mobile-filter">
+           
+                <!-- Date -->
+                <div class="py-3">
+                    <h5 class="font-weight-bold">Date</h5>
+                    <form class="rating">
+                        <div class="form-inline d-flex align-items-center py-2"> <label class="tick">Last Hour<span
+                                    class="fas fa-star"></span> <span class="fas fa-star"></span> <span
+                                    class="fas fa-star"></span> <span class="fas fa-star"></span> <span
+                                    class="fas fa-star"></span> <input type="checkbox"> <span class="check"></span>
+                            </label> </div>
+                        <div class="form-inline d-flex align-items-center py-2"> <label class="tick">Today <span
+                                    class="fas fa-star"></span> <span class="fas fa-star"></span> <span
+                                    class="fas fa-star"></span> <span class="fas fa-star"></span> <span
+                                    class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span
+                                    class="check"></span> </label> </div>
+                        <div class="form-inline d-flex align-items-center py-2"> <label class="tick">This Week<span
+                                    class="fas fa-star"></span> <span class="fas fa-star"></span> <span
+                                    class="fas fa-star"></span> <span class="far fa-star px-1 text-muted"></span> <span
+                                    class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span
+                                    class="check"></span> </label> </div>
+                        <div class="form-inline d-flex align-items-center py-2"> <label class="tick">This Month<span
+                                    class="fas fa-star"></span> <span class="fas fa-star"></span> <span
+                                    class="far fa-star px-1 text-muted"></span> <span
+                                    class="far fa-star px-1 text-muted"></span> <span
+                                    class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span
+                                    class="check"></span> </label> </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="content py-md-0 py-3">
+                <section id="sidebar">
+                    <!-- Categories -->
+                    <form action="/api/getCategory" method="POST">
+                        <div class="py-3">
+                            <h5 class="font-weight-bold">Categories</h5>
+                            <select class="list-group" name="category">
+                                <option
+                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center category" value="Vehicle">
+                                    Vehicles<span class="badge badge-primary badge-pill"></span>
+                                </option>
+                                <option
+                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center category"
+                                    value="Property">
+                                    Property<span class="badge badge-primary badge-pill"></span>
+                                </option>
+                                <option
+                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center category"
+                                    value="Furniture">
+                                    Furniture<span class="badge badge-primary badge-pill"></span>
+                                </option>
+                                <option
+                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center category"
+                                    value="Antique Items">
+                                    Antique Items<span class="badge badge-primary badge-pill"></span>
+                                </option>
+                                <option
+                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center category"
+                                    value="Electronics">
+                                    Electronics<span class="badge badge-primary badge-pill"></span>
+                                </option>
+                                <option
+                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center category"
+                                    value="Fashion">
+                                    Fashion<span class="badge badge-primary badge-pill"></span>
+                                </option>
+                                <option
+                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center category"
+                                    value="Collections">
+                                    Collections<span class="badge badge-primary badge-pill"></span>
+                                </option>
+                                <option
+                                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center category"
+                                    value="More">
+                                    More<span class="badge badge-primary badge-pill"></span>
+                                </option>
+                            </select>
+
+                        
+                        </div>
+                     
+                     
+
+                        <button class="prod btn btn-primary" type="submit">Seach</button>
+                    </form>
+                </section>
+
+                <!-- Products Section -->
+                <section id="products">
+                    <div class="container py-3">
+                        
+                        <div class="row ">
+                            <% products.forEach(function(prod) { %>
+                                <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 pt-lg-0 pt-4 mb-5">
+                                    <div class="card"> <img class="card-img-top mt-1"
+                                            src=" <%= prod.image[0] %>">
+                                        <div class="card-body">
+                                            <h6 class="font-weight-bold pt-1">
+                                                <%= prod.title %>
+                                            </h6>
+                                           
+                                            <div class="d-flex align-items-center product"> <span
+                                                    class="fas fa-star"></span>
+                                                <span class="fas fa-star"></span> <span class="fas fa-star"></span>
+                                                <span class="fas fa-star"></span> <span class="far fa-star"></span>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between pt-3">
+                                                <div class="d-flex flex-column">
+                                                    <div class="h6 font-weight-bold">
+                                                    Current Bid: <%= prod.current_bid %>
+                                                    </div>
+                                                    <div class="text-muted rebate">
+                                                    Starting Bid: <%= prod.bid_price %>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="mt-2 mb-2">
+                                                        <a href="/api/getProductDetail/<%= prod._id %>">
+                                                            <div class="prod btn btn-primary">Bid Now</div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }); %>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+
+
+        <script type="text/javascript" src="slick/slick.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+        <!-- Jquery cdn link -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+            integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- java script owl carousel -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+            integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script>
+            $('.owl-carousel').owlCarousel({
+                stagePadding: 50,
+                loop: true,
+                margin: 10,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            })
+            function sendRequest(value) {
+                // Create a new XMLHttpRequest object
+                var xhr = new XMLHttpRequest();
+
+                // Configure the POST request
+                xhr.open('POST', '/api/getCategory', true);
+
+                // Set the Content-Type header for JSON data
+                xhr.setRequestHeader('Content-Type', 'application/json');
+
+                // Set the callback function to handle the response
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        // Request was successful
+                        var response = xhr.responseText;
+                        console.log(response);
+                    } else {
+                        // Request failed
+                        console.error('Request failed. Status:', xhr.status);
+                    }
+                };
+
+                // Prepare the request body with the value
+                var requestBody = JSON.stringify({ value: value });
+
+                // Send the request
+                xhr.send(requestBody);
+            }
+        </script>
+
+</body>
+
+</html>

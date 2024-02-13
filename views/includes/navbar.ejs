@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <a class="navbar-brand" href="/api/"><img src="/images/Brand Logo/1-transparent.png" alt="logo"
+      style="height: 50px;"></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+
+      <!-- home -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/api/">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <!-- Products -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/api/products">Products <span class="sr-only">(current)</span></a>
+      </li>
+
+      <!-- Store List -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/api/storeList">Store List</a>
+      </li>
+
+      <!-- About Us -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/api/aboutus">About Us</a>
+      </li>
+
+      <!-- Contact Us -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/api/contactus">Contact Us</a>
+      </li>
+
+
+
+    </ul>
+    <!-- Search -->
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 ml-auto" role="search">
+      <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+        aria-label="Search">
+    </form>
+
+
+    <% if (logged_in) { %>
+      <!-- profile -->
+      <div class="dropdown active mr-2">
+        <a class="nav-link dropdown-toggle mr-5" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/api/userProfile">My Profile</a>
+          <a class="dropdown-item" href="/api/createStore">Register Store</a>
+          <a class="dropdown-item" href="/api/store">My Store</a>
+          <!-- <a class="dropdown-item" href="listed-Product">Listed Product</a> -->
+          <hr class="dropdown-divider">
+          </li>
+          <a class="dropdown-item" href="signout">Sign out</a>
+        </div>
+      </div>
+      <%} else { %>
+        <!-- Signup/ Login -->
+        <div class="text-end ">
+          <a href="/api/Signin"><button type="button" class="btn btn-outline-dark me-2">Login</button></a>
+          <a href="/api/Signup"><button type="button" class="btn btn-warning">Sign-up</button></a>
+        </div>
+        <% } %>
+
+  </div>
+</nav>

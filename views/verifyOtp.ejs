@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <style>
+        .form-gap {
+            padding-top: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <% if (alert) { %>
+        <div class="alert <%=type%>" role="alert"><%= message %></div>
+    <% } %> 
+    <div class="form-gap">
+       
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <div class="text-center">
+                            <iframe frameBorder="0" style="pointer-events: none;"
+                                src="https://embed.lottiefiles.com/animation/80129"></iframe>
+                            <!-- <lottie-player src="<URL HERE>"
+background="transparent"  speed="1"  style="width: 300px; height:
+300px;" loop controls autoplay></lottie-player> -->
+                            <h2 class="text-center">OTP?</h2>
+                            <p>Please check your email address to verify OTP code</p>
+                            <div class="panel-body">
+                                <form id="register-form" action="/api/verifyOtp" class="form" method="post">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                            <input id="email" name="otp" placeholder="Enter your OTP"
+                                                class="form-control" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="otp" class="btn btn-lg btn-warning btn-block" value="Verify OTP"
+                                            type="submit">
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

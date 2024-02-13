@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" action="/api/signup" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Your Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="cnic"><i class="zmdi zmdi-cnic"></i></label>
+                                <input type="number" name="cnic" id="cnic" placeholder="CNIC"
+                                    oninput="checkCNICLength()" />
+                            </div>
+                            <div class="form-group">
+                                <label for="phone"><i class="zmdi zmdi-phone"></i></label>
+                                <input type="number" name="phone" minlength="11" maxlength="11" id="phone"
+                                    placeholder="Contact Number" oninput="checkPhoneLength()" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email"
+                                    onblur="checkEmailFormat()" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="pass" placeholder="Password" />
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" />
+                            </div>
+
+    
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all
+                                    statements in <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+
+                            <!-- button -->
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                            </div>
+                        </form>
+
+
+
+
+                    </div>
+
+                    <div class="signup-image">
+                        <a href="/api/">
+                            <figure><img src="/images/Brand Logo/3-transparent.png" alt="sing up image"></figure>
+                        </a>
+                        <a href="signin" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+    <!-- JS -->
+    <script>
+        function checkPhoneLength() {
+            var phoneInput = document.getElementById("phone");
+            var phoneValue = phoneInput.value;
+
+            if (phoneValue.length > 11) {
+                alert("Your phone number exceeds the limit. Please enter a valid 11-digit phone number.");
+                phoneInput.value = phoneValue.slice(0, 11);
+            }
+        }
+    </script>
+
+    <script>
+        function checkCNICLength() {
+            var cnicInput = document.getElementById("cnic");
+            var cnicValue = cnicInput.value;
+
+            if (cnicValue.length > 13) {
+                alert("Your CNIC number exceeds the limit. Please enter a valid 13-digit CNIC number.");
+                cnicInput.value = cnicValue.slice(0, 13);
+            }
+        }
+    </script>
+
+    <script>
+        function checkEmailFormat() {
+            var emailInput = document.getElementById("email");
+            var emailValue = emailInput.value;
+
+            if (!emailValue.includes("@gmail.com")) {
+                alert("Enter a valid email address (e.g., yourname@gmail.com)");
+                emailInput.value = "";
+                emailInput.focus();
+            }
+        }
+    </script>
+
+    <script>
+        function checkFormValidity() {
+            var passwordInput = document.getElementById("pass");
+            var repeatPasswordInput = document.getElementById("re_pass");
+
+
+            if (passwordInput.value.length < 6) {
+                var alertDiv = document.createElement("div");
+                alertDiv.classList.add("alert", "alert-danger", "mt-3");
+                alertDiv.innerHTML = "Minimum password length should be 6 characters.";
+                var form = document.getElementById("register-form");
+                form.insertBefore(alertDiv, form.firstChild);
+
+                passwordInput.value = "";
+                repeatPasswordInput.value = "";
+
+                passwordInput.focus();
+
+                return false;
+            }
+
+
+            if (passwordInput.value !== repeatPasswordInput.value) {
+                var alertDiv = document.createElement("div");
+                alertDiv.classList.add("alert", "alert-danger", "mt-3");
+                alertDiv.innerHTML = "Please enter the same password in both fields.";
+                var form = document.getElementById("register-form");
+                form.insertBefore(alertDiv, form.firstChild);
+
+                passwordInput.value = "";
+                repeatPasswordInput.value = "";
+
+                passwordInput.focus();
+
+                return false;
+            }
+
+            return true;
+        }
+
+
+        document.getElementById("register-form").addEventListener("submit", function (event) {
+            if (!checkFormValidity()) {
+                event.preventDefault();
+            }
+        });
+    </script>
+
+
+
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>

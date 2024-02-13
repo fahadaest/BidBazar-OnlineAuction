@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/indexstyle.css">
+    <link rel="stylesheet" href="/slick/slick.css">
+    <link rel="stylesheet" href="/slick/slick-theme.css">
+    <link rel="stylesheet" href="/css/banner.css">
+
+    <!-- site favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
+    <!-- ====== All css file ========= -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/ssets/css//icofont.min.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- External owl carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Store Details</title>
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+    <%- include('includes/navbar') %>
+    <!-- ==========Profile Section Start Here========== -->
+    <section class="profile-section  padding-bottom">
+        <div class="container">
+            <div class="section-wrapper">
+                <div class="member-profile">
+                    <div class="profile-item">
+                        <header class="bg-warning text-white text-center py-5" style="height: 300px;">
+                            <h1>My Store</h1>
+                        </header>
+                        <div class="profile-information">
+                            <div class="profile-pic">
+                                <img src="<%= store.store_image %>" alt="DP">
+                                <div class="custom-upload">
+                                    <div class="file-btn">
+                                        <span class="d-none d-lg-inline-block"> <i class="icofont-camera"></i>
+                                            Edit</span>
+                                        <span class="d-lg-none mr-0"><i class="icofont-plus"></i></span>
+                                    </div>
+                                    <input type="file">
+                                </div>
+                            </div>
+
+                            <div class="profile-name">
+                                <h4><%= store.store_fullname %></h4>
+                                <p>@<%= store.store_name %></p>
+                            </div>
+
+
+                            <ul class="profile-contact">
+
+                                <li>
+                                    <a href="#">
+                                        <div class="icon"><i class="icofont-speech-comments"></i></div>
+                                        <div class="text">
+                                            <p>Send Message</p>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <nav class="profile-nav">
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                         
+                            <div class="tab-pane activity-page fade show active" id="allNft" role="tabpanel">
+                                <div>
+                                    <div class="row">
+                                        <div class="col-xl-9">
+                                            <article>
+                                                <div class="activity-tab">
+                                                    <ul class="nav nav-pills mb-30 px-2" id="pills-tab" role="tablist">
+                                                        <li class="nav-item" role="presentation">
+                                                            <button class="nav-link active" id="pills-mentions-tab"
+                                                                data-bs-toggle="pill" data-bs-target="#pills-mentions"
+                                                                type="button" role="tab" aria-controls="pills-mentions"
+                                                                aria-selected="true"><i class="icofont-flash"></i>
+                                                                Live Products</button>
+                                                        </li>
+                                                        <li class="nav-item" role="presentation">
+                                                            <button class="nav-link" id="pills-favorites-tab"
+                                                                data-bs-toggle="pill" data-bs-target="#pills-favorites"
+                                                                type="button" role="tab" aria-controls="pills-favorites"
+                                                                aria-selected="false"><i class="icofont-license"></i>
+                                                                Sold Products</button>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="tab-content activity-content" id="pills-tabContent">
+                                                        <div class="tab-pane fade mentions-section show active onsale-loadmore"
+                                                            id="pills-mentions" role="tabpanel"
+                                                            aria-labelledby="pills-mentions-tab">
+                                                            <div class="row justify-content-center g-4">
+                                                                <div class="col-lg-4 col-sm-6">
+                                                                    <% products.forEach(function(prod) { %>
+                                                                    <div class="nft-item">
+                                                                        <div class="nft-inner ">
+                                                                           
+                                                                            <div
+                                                                                class="nft-item-top d-flex justify-content-between ">
+                                                                                <div class="author-part">
+                                                                                    <ul class="author-list d-flex">
+                                                                                        <li
+                                                                                            class="single-author d-flex ">
+                                                                                            <a href="author.html"
+                                                                                                class="veryfied"><img
+                                                                                                    src="<%= store.store_image %>"
+                                                                                                    alt="author-img"></a>
+                                                                                            <h6><a href="author.html"><%= store.store_fullname %></a>
+                                                                                            </h6>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="more-part">
+                                                                                    <div class=" dropstart">
+                                                                                        <a class=" dropdown-toggle"
+                                                                                            href="#" role="button"
+                                                                                            data-bs-toggle="dropdown"
+                                                                                            aria-expanded="false"
+                                                                                            data-bs-offset="25,0">
+                                                                                            <i
+                                                                                                class="icofont-flikr"></i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            
+                                                                            <div class="nft-item-bottom">
+                                                                                <div class="nft-thumb">
+                                                                                    <img src="<%= prod.image %>"alt="nft-img">
+                                                                                </div>
+                                                                                <div class="nft-content text-center">
+                                                                                    <div class="content-title">
+                                                                                        <h5><a href="item-details.html"> <%= prod.title %> </a> </h5>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="price-like d-flex justify-content-between">
+
+                                                                                        <div class="nft-price d-flex ">
+                                                                                            <span class="currency-img">
+                                                                                                <p>Starting Price</p>
+                                                                                            </span>
+                                                                                            <p><%= prod.bid_price %> PKR</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="price-like d-flex justify-content-between ">
+                                                                                        <div class="nft-price d-flex">
+                                                                                            <span class="currency-img">
+                                                                                                <p>Current Bid</p>
+                                                                                            </span>
+                                                                                            <p><%= prod.current_bid %> PKR</p>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="price-like d-flex ">
+                                                                                        <a href="/api/getProductDetail/<%= prod._id %>" class="nft-bid">
+                                                                                            Place Bid </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <% }); %>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="tab-pane fade" id="pills-favorites" role="tabpanel"
+                                                            aria-labelledby="pills-favorites-tab">
+
+                                                            <div class="row justify-content-center g-4">
+                                                               
+
+                                                                <div class="col-lg-4 col-sm-6">
+                                                                    <div class="nft-item">
+                                                                        <div class="nft-inner ">
+                                                                            <!-- nft top part -->
+                                                                            <div
+                                                                                class="nft-item-top d-flex justify-content-between ">
+                                                                                <div class="author-part">
+                                                                                    <ul class="author-list d-flex">
+                                                                                        <li
+                                                                                            class="single-author d-flex ">
+                                                                                            <a href="author.html"
+                                                                                                class="veryfied"><img
+                                                                                                    src="/public/images/Brand Logo/1-whiteBG.png"
+                                                                                                    alt="author-img"></a>
+                                                                                            <h6><a href="author.html">Store
+                                                                                                    Username</a>
+                                                                                            </h6>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="more-part">
+                                                                                    <div class=" dropstart">
+                                                                                        <a class=" dropdown-toggle"
+                                                                                            href="#" role="button"
+                                                                                            data-bs-toggle="dropdown"
+                                                                                            aria-expanded="false"
+                                                                                            data-bs-offset="25,0">
+                                                                                            <i
+                                                                                                class="icofont-flikr"></i>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- nft-bottom part -->
+                                                                            <div class="nft-item-bottom">
+                                                                                <div class="nft-thumb">
+                                                                                    <img src="/public/images/Sales Ending Today/watch.jpg"
+                                                                                        alt="nft-img">
+                                                                                </div>
+                                                                                <div class="nft-content text-center">
+                                                                                    <div class="content-title">
+                                                                                        <h5><a href="item-details.html">Product
+                                                                                                Title
+                                                                                            </a> </h5>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="price-like d-flex justify-content-between">
+
+                                                                                        <div class="nft-price d-flex ">
+                                                                                            <span class="currency-img">
+                                                                                                <p>Starting Price</p>
+                                                                                            </span>
+                                                                                            <p>100 PKR
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="price-like d-flex justify-content-between ">
+                                                                                        <div class="nft-price d-flex">
+                                                                                            <span class="currency-img">
+                                                                                                <p>Current Bid</p>
+                                                                                            </span>
+                                                                                            <p>101 PKR
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="price-like d-flex ">
+                                                                                        <a href="#" class="nft-bid">
+                                                                                            Place Bid </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+
+                                                        </div>
+
+                                                    </div>
+                                            </article>
+                                        </div>
+
+                                        <!-- Aside Part -->
+                                        <div class="col-xl-3">
+                                            <aside class="mt-5 mt-xl-0">
+                                                <div class="profile-widget search-widget">
+                                                    <div class="widget-inner">
+                                                        <div class="widget-title">
+                                                            <h5>Store Detail</h5>
+                                                            <hr>
+                                                            <h6>Email:</h6>
+                                                            <h6>Phone No.:</h6>
+                                                            <h6>Address:</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% if (logged_in) { %>
+                                                <div class="profile-widget search-widget">
+                                                    <div class="widget-inner">
+                                                        <div class="widget-title">
+                                                            <h5>Add Product</h5>
+                                                            <hr>
+                                                            <a href="/api/add-product/<%= store._id%>">
+                                                                <button type="button" class="btn btn-warning">Add New Product</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget widget-instagram">
+                                                    <div class="widget-header">
+                                                        <h5 class="title">Listed Products</h5>
+                                                        <hr>
+                                                    <a href="/api/listed-Product/<%= store._id%>">
+                                                        <button type="button" class="btn btn-warning">View Listed Product</button>
+                                                    </a>
+                                                       
+                                                    </div>
+                                                </div>
+                                                <% } %>
+                                            </aside>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ==========Profile Section Ends Here========== -->
+    <%- include('includes/footer') %>
+    <!-- scrollToTop start here -->
+    <a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i></a>
+    <!-- scrollToTop ending here -->
+
+
+
+
+    <!-- All Scripts -->
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/waypoints.min.js"></script>
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+    <script src="/assets/js/countdown.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/jquery.simpleLoadMore.min.js"></script>
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <script src="/assets/js/functions.js"></script>
+</body>
+
+</html>
